@@ -30,7 +30,7 @@ public class Client {
 	@NotBlank
 	private String phone;
 
-	private boolean ativo = true;
+	//private boolean ativo = true;
 
 	@Column(unique = true)
 	@CPF(message = " enter with cpf")
