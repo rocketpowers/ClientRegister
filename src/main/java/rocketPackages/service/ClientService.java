@@ -21,7 +21,7 @@ public class ClientService {
 	}
 	
 	//list all
-	public List<Client> listAll() {
+	public List<Client> list() {
 		return clientRepository.findAll();
 	}
 
