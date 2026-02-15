@@ -6,6 +6,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import rocketPackages.dto.UserDto;
 import rocketPackages.entity.User;
 import rocketPackages.repository.UserRepository;
 
@@ -39,6 +40,13 @@ public class UserService {
 
 	public void del(Long id) {
 		userRepository.deleteById(id);
+	}
+
+	public UserDto findBYId(Long id) {
+		User entity = userRepository.findById(id).get();
+		UserDto userDto = new UserDto(entity);
+		return userDto;
+
 	}
 
 }

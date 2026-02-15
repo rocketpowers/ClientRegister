@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
+import rocketPackages.dto.UserDto;
 import rocketPackages.entity.User;
 import rocketPackages.service.UserService;
 
@@ -49,6 +50,12 @@ public class UserController {
 	@DeleteMapping("/{id}")
 	public void del(@PathVariable Long id) {
 		clientService.del(id);
+	}
+
+	@GetMapping("/{id}")
+	public UserDto findById(@PathVariable Long id) {
+		return clientService.findBYId(id);
+
 	}
 
 }
