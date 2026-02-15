@@ -11,12 +11,11 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
-
+@Entity
 @Getter
 @Setter
-@Entity
-public class Client {
-
+public class User {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -30,11 +29,12 @@ public class Client {
 	@NotBlank
 	private String phone;
 
-	//private boolean ativo = true;
+	//private boolean "???" ativo = true;
 
 	@Column(unique = true)
 	@CPF(message = " enter with cpf")
 	@NotBlank(message = "not empty")
 	private String cpf;
+
 
 }

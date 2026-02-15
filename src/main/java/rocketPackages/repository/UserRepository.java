@@ -2,9 +2,9 @@ package rocketPackages.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import rocketPackages.entity.Client;
+import rocketPackages.entity.User;
 
-public interface ClientRepository extends JpaRepository<Client, Long>{
+public interface UserRepository extends JpaRepository<User, Long>{
 	
 	boolean existsById(long id);
 	

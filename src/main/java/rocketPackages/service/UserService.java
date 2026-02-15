@@ -6,44 +6,39 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import rocketPackages.entity.Client;
-import rocketPackages.repository.ClientRepository;
+import rocketPackages.entity.User;
+import rocketPackages.repository.UserRepository;
 
 @Service
-public class ClientService {
+public class UserService {
 
 	@Autowired
-	private ClientRepository clientRepository;
+	private UserRepository userRepository;
 
-	// save
-	public Client save(Client client) {
-		if (clientRepository.existsByCpf(client.getCpf())) {
-			throw new RuntimeException("cpf already registered");
+	public User save(User user) {
+		if (userRepository.existsByCpf(user.getCpf())) {
+			throw new RuntimeException("cpf alrady registered");
 		}
-		return clientRepository.save(client);
+		return userRepository.save(user);
 	}
 
-	// list all
-	public List<Client> list() {
-		return clientRepository.findAll();
+	public List<User> list() {
+		return userRepository.findAll();
 	}
 
-	// list by id
-	public Client findById(Long id) {
-		return clientRepository.findById(id).orElseThrow(() -> new RuntimeException("client not found"));
+	public User findById(Long id) {
+		return userRepository.findById(id).orElseThrow(() -> new RuntimeException("client not found"));
 	}
 
-	// update
-	public Client update(Long id, Client dateClient) {
-		Client client = clientRepository.findById(id).get();
+	public User update(Long id, User dateClient) {
+		User client = userRepository.findById(id).get();
 		BeanUtils.copyProperties(dateClient, client, "id");
-		return clientRepository.save(client);
+		return userRepository.save(client);
 
 	}
 
-	// dell
 	public void del(Long id) {
-		clientRepository.deleteById(id);
+		userRepository.deleteById(id);
 	}
 
 }
